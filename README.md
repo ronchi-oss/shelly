@@ -1,5 +1,7 @@
 # shelly
 
+[![CI](https://github.com/ronchi-oss/shelly/actions/workflows/ci.yml/badge.svg)](https://github.com/ronchi-oss/shelly/actions/workflows/ci.yml)
+
 Writing a shell script can be fun. Eventually, however, as you add option parsing, sub-commands and other bells and whistles, those initial few lines of beautiful UNIX pipelines can grow to a couple hundred lines of spaghetti code in a single file. That's not as fun. At this point the common-sense advice on the internet tends to be "just rewrite it with [someone's preferred language]". Well, if you'd like to stick with shell script, `shelly` may help you.
 
 `shelly` allows you to split a script into a directory structure, typical of projects in other languages, and then stitch all shell files into a single "build" file whenever you want to try them out. It also shipts with a minimal unit test suite runner, as well as a shorthand command for running `shellcheck` against all scripts in the project.
