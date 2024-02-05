@@ -8,7 +8,7 @@ __shelly_command__shellcheck() {
     tmp=$(mktemp) ; trap 'rm $tmp' EXIT
     exit_status=0
 
-    ( find .shelly/* ; find bin/* ; find src -name '*.sh') > "$tmp"
+    ( find .shelly/* ; test -d bin && find bin/* ; find src -name '*.sh') > "$tmp"
 
     while read -r path; do
         shellcheck -x --shell sh "$path"
