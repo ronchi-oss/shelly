@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build shelly as single POSIX shell script
+      run: ./bin/shelly-build -s main > shelly
+
+    - name: Make shelly build output file executable
+      run: chmod +x shelly
+
+    - name: Add cwd to PATH
+      run: echo "$PWD" >> $GITHUB_PATH
+
+    - name: Run shellcheck with shelly build
+      run: shelly shellcheck
+
+    - name: Build and run tests with shelly build
+      run: shelly test

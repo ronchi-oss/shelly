@@ -1,0 +1,4 @@
+#!/bin/sh
+
+. ./src/command/build.sh
+__shelly_command__build "$@"
