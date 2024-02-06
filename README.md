@@ -25,7 +25,16 @@ Run "shelly help <command>" for further information about a command.
 
 ## Installation
 
-For the time being the only way to install it is manually building it.
+### Homebrew
+
+```
+brew tap ronchi-oss/tap
+brew install shelly
+```
+
+Note: the shelly homebrew formula builds and installs the bash shell completion.
+
+### From source
 
 ```
 # Building `shelly`
