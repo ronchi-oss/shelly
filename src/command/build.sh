@@ -50,7 +50,11 @@ __shelly_command__build() {
             fi
         done < LICENSE >> "$build_file"
     fi
-    "$build_target_fn" | xargs -0 cat | sed '/^$/d' >> "$build_file"
+    "$build_target_fn" \
+        | while read -r path; do
+              cat "$path"
+          done \
+        | sed '/^$/d' >> "$build_file"
     if test -n "$with_shebang"; then
         echo 'main "$@"' >> "$build_file"
     fi
